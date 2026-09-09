@@ -1,0 +1,37 @@
+{
+  "name": "pluto-supabase-blog-template",
+  "type": "module",
+  "private": true,
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "@plutocms/pluto",
+    "@plutocms/supabase",
+    "@plutocms/supabase-blog",
+    "@plutocms/supabase-storage",
+    "@plutocms/ui",
+    "@plutocms/utils",
+    "esbuild",
+    "supabase",
+    "unrs-resolver",
+    "vue-demi"
+  ],
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "test": "vitest run",
+    "supabase-types": "bun node_modules/@plutocms/supabase/scripts/supabase-typegen.ts"
+  },
+  "dependencies": {
+    "@plutocms/supabase-blog": "0.1.0",
+    "nuxt": "^4.5.2",
+    "vue": "^3.5.41",
+    "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
+  }
+}
