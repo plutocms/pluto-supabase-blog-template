@@ -6,12 +6,8 @@ useHead({
 const { posts } = await usePost();
 
 function excerpt(content: string | null, length = 160): string {
-  if (!content) {
-    return "No content yet.";
-  }
-
-  const plain = content.replace(/[#*_`>[\]()-]/g, " ").replace(/\s+/g, " ").trim();
-
+  const plain = richtextToPlainText(content);
+  if (!plain) return "No content yet.";
   return plain.length > length ? `${plain.slice(0, length)}…` : plain;
 }
 
