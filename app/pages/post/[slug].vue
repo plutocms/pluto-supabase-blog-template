@@ -31,13 +31,11 @@ function formatDate(value: string): string {
         </p>
       </div>
 
-      <!-- The editor stores markdown. This prints it as plain text for now.
-           A real markdown renderer is a natural follow-up, not an oversight. -->
-      <div
-        class="text-lg text-gray-700 dark:text-gray-300 whitespace-pre-wrap"
-      >
-        {{ post?.content }}
-      </div>
+      <PlutoProse :content="post?.content" class="text-gray-700 dark:text-gray-300">
+        <template #empty>
+          <p class="text-gray-500 dark:text-gray-400">No content yet.</p>
+        </template>
+      </PlutoProse>
     </article>
   </UContainer>
 </template>
