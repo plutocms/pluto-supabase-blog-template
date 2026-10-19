@@ -1,5 +1,17 @@
 <script setup lang="ts">
-const menuItems = [{ name: "Home", href: "/blog" }];
+// The public site has its own language (the site scope). A visitor picks it
+// here. The choice is kept in the pluto-site-locale cookie.
+const { t, locale, locales, setLocale } = usePlutoSiteI18n();
+
+const menuItems = computed(() => [{ name: t("site.nav.home"), href: "/blog" }]);
+
+// Each language is named in its own language, so a visitor finds theirs.
+const languageItems = computed(() =>
+  locales.value.map((code) => {
+    const name = new Intl.DisplayNames([code], { type: "language" }).of(code) ?? code;
+    return { label: name.charAt(0).toLocaleUpperCase(code) + name.slice(1), value: code };
+  }),
+);
 
 const { isLoggedIn } = await useAuth();
 </script>
@@ -38,6 +50,16 @@ const { isLoggedIn } = await useAuth();
       </div>
 
       <div class="flex items-center gap-3">
+        <USelect
+          :model-value="locale"
+          :items="languageItems"
+          :aria-label="t('site.nav.language')"
+          icon="i-lucide-languages"
+          size="sm"
+          class="w-44"
+          @update:model-value="setLocale"
+        />
+
         <button
           type="button"
           class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-200 text-sm font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"
