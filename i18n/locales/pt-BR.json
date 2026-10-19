@@ -1,0 +1,15 @@
+{
+  "site": {
+    "nav": {
+      "home": "Início",
+      "language": "Idioma"
+    },
+    "blog": {
+      "pageTitle": "Blog",
+      "heading": "Blog do Pluto",
+      "posts": "Posts",
+      "empty": "Ainda não há posts. Volte mais tarde.",
+      "noContent": "Ainda sem conteúdo."
+    }
+  }
+}

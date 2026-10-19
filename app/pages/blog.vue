@@ -1,22 +1,23 @@
 <script setup lang="ts">
+// The public site uses the site scope. It has its own language, separate
+// from the admin language of a signed-in user. The texts are in
+// i18n/locales/<code>.json under `site.*`.
+const { t, d } = usePlutoSiteI18n();
+
 useHead({
-  title: "Blog",
+  title: () => t("site.blog.pageTitle"),
 });
 
 const { posts } = await usePost();
 
 function excerpt(content: string | null, length = 160): string {
   const plain = richtextToPlainText(content);
-  if (!plain) return "No content yet.";
+  if (!plain) return t("site.blog.noContent");
   return plain.length > length ? `${plain.slice(0, length)}…` : plain;
 }
 
 function formatDate(value: string): string {
-  return new Date(value).toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  return d(value, { year: "numeric", month: "long", day: "numeric" });
 }
 </script>
 
@@ -26,7 +27,9 @@ function formatDate(value: string): string {
       <div class="text-center space-y-6">
         <UBadge label="Template" icon="i-lucide-star" />
 
-        <h1 class="text-4xl font-bold text-center text-white">Pluto Blog</h1>
+        <h1 class="text-4xl font-bold text-center text-white">
+          {{ t("site.blog.heading") }}
+        </h1>
 
         <UAlert
           color="neutral"
@@ -41,10 +44,10 @@ function formatDate(value: string): string {
     <main>
       <Container class="py-8 max-w-full">
         <section class="py-8 flex flex-col gap-y-6">
-          <h2 class="text-2xl font-bold">Posts</h2>
+          <h2 class="text-2xl font-bold">{{ t("site.blog.posts") }}</h2>
 
           <div v-if="!posts?.length" class="text-center text-gray-500 py-16">
-            No posts available. Please check back later.
+            {{ t("site.blog.empty") }}
           </div>
 
           <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

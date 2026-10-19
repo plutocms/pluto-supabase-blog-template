@@ -1,0 +1,15 @@
+{
+  "site": {
+    "nav": {
+      "home": "Home",
+      "language": "Language"
+    },
+    "blog": {
+      "pageTitle": "Blog",
+      "heading": "Pluto Blog",
+      "posts": "Posts",
+      "empty": "No posts available. Please check back later.",
+      "noContent": "No content yet."
+    }
+  }
+}

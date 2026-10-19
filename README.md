@@ -38,6 +38,24 @@ them:
 `#build/pluto.css` brings in the CSS of every Pluto layer, including the admin theme. The
 admin keeps its own palette, so your site theme does not change it.
 
+## Translation
+
+The admin is in English and Brazilian Portuguese. Each admin picks a language on the
+Settings page.
+
+The public site has its own language, separate from the admin language. This template
+shows how to use it:
+
+- Put your texts in `i18n/locales/<code>.json`, under the `site.*` keys. One file per
+  language, with the same keys in each file.
+- In a page or component, call `usePlutoSiteI18n()`. Use `t('site.…')` for text and
+  `d(date, options)` for dates.
+- `plutoI18n.siteLocale` in `nuxt.config.ts` sets the language before a visitor picks one.
+- The language switch in `app/components/Navbar.vue` calls `setLocale(code)`. The choice is
+  kept in the `pluto-site-locale` cookie.
+
+To add a language, add one `i18n/locales/<code>.json` file.
+
 ## Development Server
 
 Start the development server on `http://localhost:3000`:
