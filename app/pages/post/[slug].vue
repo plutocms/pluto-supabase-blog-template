@@ -1,11 +1,16 @@
 <script setup lang="ts">
-useHead({
-  title: "Post",
-});
+const { t } = usePlutoSiteI18n();
 
 const route = useRoute();
 
 const { post, error } = await usePost(route.params.slug as string);
+
+useHead({
+  title: () =>
+    error.value
+      ? t("site.post.notFoundTitle")
+      : String(post.value?.title || t("site.post.pageTitle")),
+});
 
 function formatDate(value: string): string {
   return new Date(value).toLocaleDateString(undefined, {
