@@ -10,6 +10,13 @@
       "posts": "Posts",
       "empty": "Ainda não há posts. Volte mais tarde.",
       "noContent": "Ainda sem conteúdo."
+    },
+    "welcome": {
+      "pageTitle": "Boas-vindas"
+    },
+    "post": {
+      "pageTitle": "Post",
+      "notFoundTitle": "Post não encontrado"
     }
   }
 }
