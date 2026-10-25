@@ -1,12 +1,10 @@
-// Point PLUTO_SUPABASE_BLOG_PATH at a local checkout (e.g.
-// `../supabase-blog`) to test unpublished changes; unset, it resolves to
-// the published npm package.
-const supabaseBlogLayer =
-  process.env.PLUTO_SUPABASE_BLOG_PATH || "@plutocms/supabase-blog";
+import { plutoLayer } from "@plutocms/pluto/layers";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  extends: [[supabaseBlogLayer, { install: true }]],
+  // Set PLUTO_LOCAL_ROOT in .env to use local checkouts of the Pluto layers.
+  // See "Develop with local layers" in README.md.
+  extends: [plutoLayer("@plutocms/supabase-blog")],
 
   compatibilityDate: "2025-07-15",
 
