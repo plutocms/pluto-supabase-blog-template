@@ -8,13 +8,21 @@ useHead({
   title: () => t("site.blog.pageTitle"),
 });
 
-const { posts } = await usePost();
-
-function excerpt(content: string | null, length = 160): string {
-  const plain = richtextToPlainText(content);
-  if (!plain) return t("site.blog.noContent");
-  return plain.length > length ? `${plain.slice(0, length)}…` : plain;
+interface PostSummary {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  createdAt: string;
 }
+
+// The published posts, newest first, from the public API of Pluto
+// (`/api/pluto/v1/content/post`). Each item has a plain-text `excerpt`.
+const { data } = await usePlutoPublicList<PostSummary>("post", {
+  limit: 100,
+  sort: "-createdAt",
+});
+const posts = computed(() => data.value?.data ?? []);
 
 function formatDate(value: string): string {
   return d(value, { year: "numeric", month: "long", day: "numeric" });
@@ -69,11 +77,11 @@ function formatDate(value: string): string {
               </h3>
 
               <p class="text-sm text-gray-500">
-                {{ formatDate(post.created_at) }}
+                {{ formatDate(post.createdAt) }}
               </p>
 
               <p class="text-sm text-gray-500">
-                {{ excerpt(post.content) }}
+                {{ post.excerpt || t("site.blog.noContent") }}
               </p>
             </article>
           </div>

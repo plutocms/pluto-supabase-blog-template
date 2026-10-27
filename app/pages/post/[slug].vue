@@ -3,7 +3,21 @@ const { t } = usePlutoSiteI18n();
 
 const route = useRoute();
 
-const { post, error } = await usePost(route.params.slug as string);
+interface Post {
+  id: number;
+  title: string;
+  html: string;
+  createdAt: string;
+}
+
+// One published post from the public API of Pluto. `html` is the body,
+// rendered and sanitized on the server. A draft or a missing slug gives an
+// error.
+const { data, error } = await usePlutoPublicItem<Post>(
+  "post",
+  String(route.params.slug),
+);
+const post = computed(() => data.value?.data);
 
 useHead({
   title: () =>
@@ -32,11 +46,11 @@ function formatDate(value: string): string {
         </h1>
 
         <p class="text-sm text-gray-500 dark:text-gray-400">
-          {{ post?.created_at ? formatDate(post.created_at) : "" }}
+          {{ post?.createdAt ? formatDate(post.createdAt) : "" }}
         </p>
       </div>
 
-      <PlutoProse :content="post?.content" class="text-gray-700 dark:text-gray-300">
+      <PlutoProse :content="post?.html" format="html" class="text-gray-700 dark:text-gray-300">
         <template #empty>
           <p class="text-gray-500 dark:text-gray-400">No content yet.</p>
         </template>
