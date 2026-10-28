@@ -71,7 +71,7 @@ function formatDate(value: string): string {
               />
 
               <h3
-                class="text-lg font-semibold leading-tight group-hover/post:text-primary"
+                class="text-lg/tight font-semibold group-hover/post:text-primary"
               >
                 {{ post.title }}
               </h3>
