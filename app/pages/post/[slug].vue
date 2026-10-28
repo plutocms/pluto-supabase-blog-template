@@ -50,7 +50,11 @@ function formatDate(value: string): string {
         </p>
       </div>
 
-      <PlutoProse :content="post?.html" format="html" class="text-gray-700 dark:text-gray-300">
+      <PlutoProse
+        :content="post?.html"
+        format="html"
+        class="text-gray-700 dark:text-gray-300"
+      >
         <template #empty>
           <p class="text-gray-500 dark:text-gray-400">No content yet.</p>
         </template>

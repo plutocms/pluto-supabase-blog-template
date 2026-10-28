@@ -37,8 +37,6 @@ describe("supabase-blog layer resolution", () => {
 
     const { default: config } = await import("../nuxt.config");
 
-    expect(config.extends).toEqual([
-      ["../supabase-blog", { install: true }],
-    ]);
+    expect(config.extends).toEqual([["../supabase-blog", { install: true }]]);
   });
 });

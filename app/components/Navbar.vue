@@ -8,8 +8,12 @@ const menuItems = computed(() => [{ name: t("site.nav.home"), href: "/blog" }]);
 // Each language is named in its own language, so a visitor finds theirs.
 const languageItems = computed(() =>
   locales.value.map((code) => {
-    const name = new Intl.DisplayNames([code], { type: "language" }).of(code) ?? code;
-    return { label: name.charAt(0).toLocaleUpperCase(code) + name.slice(1), value: code };
+    const name =
+      new Intl.DisplayNames([code], { type: "language" }).of(code) ?? code;
+    return {
+      label: name.charAt(0).toLocaleUpperCase(code) + name.slice(1),
+      value: code,
+    };
   }),
 );
 
@@ -63,7 +67,7 @@ const { visible: adminBarVisible } = usePlutoAdminBar();
 
         <button
           type="button"
-          class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-200 text-sm font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"
+          class="inline-flex size-9 items-center justify-center rounded-full bg-slate-200 text-sm font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"
         >
           J
         </button>
