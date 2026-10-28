@@ -51,8 +51,8 @@ const isFirstSetup = computed(
         <p
           class="text-lg/relaxed dark:text-gray-400 light:text-gray-600 font-outfit max-w-xl mx-auto"
         >
-          This is a starter template for building a blog with Pluto
-          and Supabase. Customize it to fit your brand and start publishing!
+          This is a starter template for building a blog with Pluto and
+          Supabase. Customize it to fit your brand and start publishing!
         </p>
       </div>
 
@@ -76,12 +76,7 @@ const isFirstSetup = computed(
         v-if="!isFirstSetup"
         class="flex flex-col sm:flex-row items-center gap-4 mt-2"
       >
-        <UButton
-          to="/blog"
-          size="xl"
-          color="primary"
-          icon="lucide:newspaper"
-        >
+        <UButton to="/blog" size="xl" color="primary" icon="lucide:newspaper">
           Go to Blog
         </UButton>
 

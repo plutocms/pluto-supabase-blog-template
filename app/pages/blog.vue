@@ -58,7 +58,10 @@ function formatDate(value: string): string {
             {{ t("site.blog.empty") }}
           </div>
 
-          <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div
+            v-else
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
             <article
               v-for="post in posts"
               :key="post.id"

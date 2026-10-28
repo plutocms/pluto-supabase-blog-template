@@ -8,8 +8,12 @@ const menuItems = computed(() => [{ name: t("site.nav.home"), href: "/blog" }]);
 // Each language is named in its own language, so a visitor finds theirs.
 const languageItems = computed(() =>
   locales.value.map((code) => {
-    const name = new Intl.DisplayNames([code], { type: "language" }).of(code) ?? code;
-    return { label: name.charAt(0).toLocaleUpperCase(code) + name.slice(1), value: code };
+    const name =
+      new Intl.DisplayNames([code], { type: "language" }).of(code) ?? code;
+    return {
+      label: name.charAt(0).toLocaleUpperCase(code) + name.slice(1),
+      value: code,
+    };
   }),
 );
 
