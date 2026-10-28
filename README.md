@@ -5,7 +5,7 @@
 
 This is a simple blog template built with Nuxt 4 + Pluto. It provides a basic structure for a blog, including a post listing page and individual post pages, backed by the `@plutocms/supabase-blog` layer's post admin (create, edit, list, delete with a rich text editor).
 
-The app extends only `@plutocms/supabase-blog`, as `[['@plutocms/supabase-blog', { install: true }]]`. That layer brings `@plutocms/supabase`, `@plutocms/supabase-storage`, `@plutocms/pluto` and `@plutocms/ui`, so the `package.json` does not list them.
+The app extends only `@plutocms/supabase-blog`, as `[['@plutocms/supabase-blog', { install: true }]]`. That layer brings `@plutocms/supabase`, `@plutocms/supabase-storage` and `@plutocms/pluto`, so the `package.json` does not list them.
 
 ## Setup
 

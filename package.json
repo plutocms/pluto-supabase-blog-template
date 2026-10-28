@@ -8,7 +8,6 @@
     "@plutocms/supabase",
     "@plutocms/supabase-blog",
     "@plutocms/supabase-storage",
-    "@plutocms/ui",
     "@plutocms/utils",
     "esbuild",
     "supabase",
