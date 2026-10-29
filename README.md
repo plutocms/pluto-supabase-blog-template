@@ -1,5 +1,10 @@
 # Pluto Supabase Blog Template
 
+> [!IMPORTANT]
+> This template is retired. The blog is now one template for both backends:
+> [plutocms/pluto-blog-template](https://github.com/plutocms/pluto-blog-template). Create a blog with
+> Supabase with `npm create pluto@latest my-blog -t blog --backend supabase`.
+
 > [!WARNING]
 > This is a work in progress. Expect breaking changes until stable version.
 
