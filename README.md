@@ -40,6 +40,10 @@ them:
 `#build/pluto.css` brings in the CSS of every Pluto layer, including the admin theme. The
 admin keeps its own palette, so your site theme does not change it.
 
+The post editor has a Markdown mode with a preview of the site. The preview uses
+`app/components/PlutoPostPreview.vue`, which copies the layout of `app/pages/posts/[slug].vue`.
+When you change the post page, change the preview too.
+
 ## Translation
 
 The admin is in English and Brazilian Portuguese. Each admin picks a language on the
