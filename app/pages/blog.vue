@@ -69,7 +69,7 @@ function formatDate(value: string): string {
             >
               <!-- Post Link -->
               <NuxtLink
-                :to="`/post/${post.slug}`"
+                :to="`/posts/${post.slug}`"
                 class="absolute inset-0 z-10"
               />
 

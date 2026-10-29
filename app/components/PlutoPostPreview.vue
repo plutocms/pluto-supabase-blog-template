@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // The preview of the post editor, in Markdown mode. It replaces the default
-// preview of Pluto, so the preview looks like `pages/post/[slug].vue`. Keep the
+// preview of Pluto, so the preview looks like `pages/posts/[slug].vue`. Keep the
 // two in step. `data-pluto-post-body` marks the body, so the outline can scroll
 // to a heading.
 const props = defineProps<{
